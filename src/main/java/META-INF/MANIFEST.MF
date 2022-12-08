@@ -1,0 +1,48 @@
+Manifest-Version: 1.0
+Main-Class: com.neo.prudential.assignment.car.CarRentalApplication
+Class-Path: lib/spring-web-5.2.5.RELEASE.jar lib/tomcat-embed-websocket-
+ 9.0.33.jar lib/jackson-databind-2.10.3.jar lib/junit-jupiter-5.5.2.jar 
+ lib/jakarta.transaction-api-1.3.3.jar lib/assertj-core-3.13.2.jar lib/m
+ ockito-junit-jupiter-3.1.0.jar lib/spring-boot-starter-data-jpa-2.2.6.R
+ ELEASE.jar lib/classmate-1.5.1.jar lib/lombok-1.18.12.jar lib/spring-co
+ ntext-5.2.5.RELEASE.jar lib/json-smart-2.3.jar lib/slf4j-api-1.7.30.jar
+  lib/jakarta.validation-api-2.0.2.jar lib/spring-boot-test-autoconfigur
+ e-2.2.6.RELEASE.jar lib/spring-boot-starter-json-2.2.6.RELEASE.jar lib/
+ junit-jupiter-engine-5.5.2.jar lib/junit-vintage-engine-5.5.2.jar lib/j
+ akarta.xml.bind-api-2.3.3.jar lib/jsonassert-1.5.0.jar lib/spring-boot-
+ starter-logging-2.2.6.RELEASE.jar lib/snakeyaml-1.25.jar lib/jackson-co
+ re-2.10.3.jar lib/log4j-to-slf4j-2.12.1.jar lib/opentest4j-1.2.0.jar li
+ b/asm-5.0.4.jar lib/spring-jdbc-5.2.5.RELEASE.jar lib/spring-aspects-5.
+ 2.5.RELEASE.jar lib/commons-lang3-3.9.jar lib/spring-beans-5.2.5.RELEAS
+ E.jar lib/spring-aop-5.2.5.RELEASE.jar lib/jackson-module-parameter-nam
+ es-2.10.3.jar lib/tomcat-embed-el-9.0.33.jar lib/hamcrest-2.1.jar lib/j
+ akarta.annotation-api-1.3.5.jar lib/spring-boot-starter-2.2.6.RELEASE.j
+ ar lib/hibernate-validator-6.0.18.Final.jar lib/jackson-datatype-jsr310
+ -2.10.3.jar lib/spring-boot-starter-web-2.2.6.RELEASE.jar lib/dom4j-2.1
+ .1.jar lib/log4j-api-2.12.1.jar lib/xmlunit-core-2.6.4.jar lib/antlr-2.
+ 7.7.jar lib/jul-to-slf4j-1.7.30.jar lib/mockito-core-3.1.0.jar lib/jand
+ ex-2.1.1.Final.jar lib/spring-jcl-5.2.5.RELEASE.jar lib/spring-data-com
+ mons-2.2.6.RELEASE.jar lib/logback-classic-1.2.3.jar lib/tomcat-embed-c
+ ore-9.0.33.jar lib/jakarta.activation-api-1.2.2.jar lib/javassist-3.24.
+ 0-GA.jar lib/spring-boot-devtools-2.2.6.RELEASE.jar lib/spring-core-5.2
+ .5.RELEASE.jar lib/spring-boot-autoconfigure-2.2.6.RELEASE.jar lib/spri
+ ng-boot-starter-aop-2.2.6.RELEASE.jar lib/HikariCP-3.4.2.jar lib/spring
+ -expression-5.2.5.RELEASE.jar lib/json-path-2.4.0.jar lib/FastInfoset-1
+ .2.16.jar lib/byte-buddy-agent-1.10.8.jar lib/spring-boot-test-2.2.6.RE
+ LEASE.jar lib/stax-ex-1.8.1.jar lib/jaxb-runtime-2.3.2.jar lib/logback-
+ core-1.2.3.jar lib/junit-platform-engine-1.5.2.jar lib/objenesis-2.6.ja
+ r lib/spring-orm-5.2.5.RELEASE.jar lib/spring-boot-2.2.6.RELEASE.jar li
+ b/jakarta.persistence-api-2.2.3.jar lib/spring-data-jpa-2.2.6.RELEASE.j
+ ar lib/accessors-smart-1.2.jar lib/junit-platform-commons-1.5.2.jar lib
+ /apiguardian-api-1.1.0.jar lib/hibernate-core-5.4.12.Final.jar lib/txw2
+ -2.3.2.jar lib/istack-commons-runtime-3.0.8.jar lib/jackson-datatype-jd
+ k8-2.10.3.jar lib/spring-webmvc-5.2.5.RELEASE.jar lib/mysql-connector-j
+ ava-8.0.19.jar lib/android-json-0.0.20131108.vaadin1.jar lib/aspectjwea
+ ver-1.9.5.jar lib/junit-jupiter-params-5.5.2.jar lib/jackson-annotation
+ s-2.10.3.jar lib/spring-test-5.2.5.RELEASE.jar lib/hibernate-commons-an
+ notations-5.1.0.Final.jar lib/spring-boot-starter-tomcat-2.2.6.RELEASE.
+ jar lib/spring-boot-starter-test-2.2.6.RELEASE.jar lib/jboss-logging-3.
+ 4.1.Final.jar lib/spring-boot-starter-validation-2.2.6.RELEASE.jar lib/
+ spring-tx-5.2.5.RELEASE.jar lib/spring-boot-starter-jdbc-2.2.6.RELEASE.
+ jar lib/byte-buddy-1.10.8.jar lib/junit-jupiter-api-5.5.2.jar
+
