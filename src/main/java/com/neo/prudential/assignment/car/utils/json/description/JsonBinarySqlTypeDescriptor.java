@@ -1,4 +1,4 @@
-package com.neo.prudential.assignment.car.json.description;
+package com.neo.prudential.assignment.car.utils.json.description;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.hibernate.type.descriptor.ValueBinder;

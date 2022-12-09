@@ -7,21 +7,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-
-import com.neo.prudential.assignment.car.json.JsonBinaryType;
-import com.neo.prudential.assignment.car.json.JsonStringType;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.TypeDef;
-import org.hibernate.annotations.TypeDefs;
-
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * @author neo

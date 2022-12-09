@@ -1,4 +1,4 @@
-package com.neo.prudential.assignment.car.json.description;
+package com.neo.prudential.assignment.car.utils.json.description;
 
 import com.neo.prudential.assignment.car.utils.JacksonUtil;
 import org.hibernate.type.descriptor.WrapperOptions;

@@ -1,7 +1,7 @@
-package com.neo.prudential.assignment.car.json;
+package com.neo.prudential.assignment.car.utils.json;
 
-import com.neo.prudential.assignment.car.json.description.JsonStringSqlTypeDescriptor;
-import com.neo.prudential.assignment.car.json.description.JsonTypeDescriptor;
+import com.neo.prudential.assignment.car.utils.json.description.JsonStringSqlTypeDescriptor;
+import com.neo.prudential.assignment.car.utils.json.description.JsonTypeDescriptor;
 import lombok.Getter;
 import org.hibernate.type.AbstractSingleColumnStandardBasicType;
 import org.hibernate.usertype.DynamicParameterizedType;
