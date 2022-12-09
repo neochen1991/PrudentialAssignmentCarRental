@@ -18,6 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Data
 @Entity
 @Table(name = "t_rent_info")
+@Cacheable(false)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

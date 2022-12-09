@@ -31,26 +31,26 @@ public class CarServiceTest {
     @Test
     public void testListAll() {
         List<Car> cars = carService.listAll();
-        Assert.assertEquals("total car num is wrong", 3, cars.size());
+        Assert.assertEquals("total car num is wrong", 4, cars.size());
     }
 
     @Test
     public void testListPage() {
         Page<Car> cars = carService.listPage(PageRequest.of(0, 5));
         long totalElements = cars.getTotalElements();
-        Assert.assertEquals("total car number is wrong", 2, totalElements);
+        Assert.assertEquals("total car number is wrong", 5, totalElements);
     }
 
     @Test
     public void testGetById() {
-        String carId = "4028883284ef7f5b0184ef7f62080000";
+        String carId = "1";
         Car byId = carService.getById(carId).orElse(null);
         Assert.assertNotNull("car is wrong", byId);
     }
 
     @Test
     public void testCarSave() {
-        Car car = Car.builder().model("test car").build();
+        Car car = Car.builder().model("BENZ").build();
         Car save = carService.save(car);
 
         Assert.assertEquals(car, save);
@@ -58,8 +58,8 @@ public class CarServiceTest {
 
     @Test
     public void testCarUpdate() {
-        String model = "new_model";
-        String carId = "2";
+        String model = "BENZ";
+        String carId = "1";
         Car car = carService.getById(carId).orElse(null);
 
         assert car != null;
@@ -73,7 +73,7 @@ public class CarServiceTest {
 
     @Test
     public void testShelvesCar() {
-        String carId = "2";
+        String carId = "1";
         carService.shelvesCar(carId);
 
         Car car = carService.getById(carId).orElse(null);

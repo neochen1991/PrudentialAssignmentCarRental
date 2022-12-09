@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -23,6 +24,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Data
 @Entity
 @Table(name = "t_customer")
+@Cacheable(false)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

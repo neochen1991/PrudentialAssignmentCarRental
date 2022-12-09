@@ -18,6 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Data
 @Entity
+@Cacheable(false)
 @Table(name = "t_car")
 @Builder
 @NoArgsConstructor

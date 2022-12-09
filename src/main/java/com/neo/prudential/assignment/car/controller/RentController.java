@@ -26,7 +26,7 @@ import com.neo.prudential.assignment.car.enums.Constant;
  * @date 2022/12/8
  */
 @RestController
-@RequestMapping("/api/v1/ticket")
+@RequestMapping("/api/v1/rent")
 public class RentController extends BaseRestController {
 
     @Autowired
@@ -37,11 +37,7 @@ public class RentController extends BaseRestController {
 
     @Autowired
     RentService rentService;
-
-    @GetMapping("/ping")
-    public String ping() {
-        return "pong";
-    }
+    
 
     @GetMapping("/listByCustomer")
     public BaseResponse listByCustomer(@RequestParam("customerId") String customerId) {
@@ -91,7 +87,7 @@ public class RentController extends BaseRestController {
 
     @GetMapping("/callback")
     @Deprecated
-    public BaseResponse thirdPaymentCallback(@RequestParam("ticketId") @NotNull String ticketId) {
+    public BaseResponse thirdPaymentCallback(@RequestParam("rentId") @NotNull String rentId) {
         //TODO: complete the third payment implements
         return success();
     }
@@ -99,14 +95,14 @@ public class RentController extends BaseRestController {
     /**
      * @param customerId
      * @param carId
-     * @param ticketId
+     * @param rentId
      * @return
      */
     @PostMapping("/payment")
     public BaseResponse payment(@RequestParam("customerId") @NotNull String customerId,
                                 @RequestParam("carId") @NotNull String carId,
-                                @RequestParam("ticketId") @NotNull String ticketId) {
-        Optional<RentInfo> ticket = rentService.getById(ticketId);
+                                @RequestParam("rentId") @NotNull String rentId) {
+        Optional<RentInfo> ticket = rentService.getById(rentId);
         if (!ticket.isPresent()) {
             return error(RestCode.ERROR);
         }
@@ -128,8 +124,8 @@ public class RentController extends BaseRestController {
     }
 
     @PostMapping("/cancel")
-    public BaseResponse cancel(@RequestParam("ticketId") @NotNull String ticketId) {
-        Optional<RentInfo> ticket = rentService.getById(ticketId);
+    public BaseResponse cancel(@RequestParam("rentId") @NotNull String rentId) {
+        Optional<RentInfo> ticket = rentService.getById(rentId);
         if (!ticket.isPresent()) {
             return error(RestCode.ERROR);
         }
@@ -147,8 +143,8 @@ public class RentController extends BaseRestController {
     }
 
     @PostMapping("/delivery")
-    public BaseResponse delivery(@RequestParam("ticketId") @NotNull String ticketId) {
-        Optional<RentInfo> ticket = rentService.getById(ticketId);
+    public BaseResponse delivery(@RequestParam("rentId") @NotNull String rentId) {
+        Optional<RentInfo> ticket = rentService.getById(rentId);
         if (!ticket.isPresent()) {
             return error(RestCode.ERROR);
         }
@@ -162,8 +158,8 @@ public class RentController extends BaseRestController {
     }
 
     @PostMapping("/confirmReceived")
-    public BaseResponse confirmReceived(@RequestParam("ticketId") @NotNull String ticketId) {
-        Optional<RentInfo> ticket = rentService.getById(ticketId);
+    public BaseResponse confirmReceived(@RequestParam("rentId") @NotNull String rentId) {
+        Optional<RentInfo> ticket = rentService.getById(rentId);
         if (!ticket.isPresent()) {
             return error(RestCode.ERROR);
         }
@@ -180,8 +176,8 @@ public class RentController extends BaseRestController {
     }
 
     @PostMapping("/returned")
-    public BaseResponse returned(@RequestParam("ticketId") @NotNull String ticketId) {
-        Optional<RentInfo> ticket = rentService.getById(ticketId);
+    public BaseResponse returned(@RequestParam("rentId") @NotNull String rentId) {
+        Optional<RentInfo> ticket = rentService.getById(rentId);
         if (!ticket.isPresent()) {
             return error(RestCode.ERROR);
         }
