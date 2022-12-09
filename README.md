@@ -25,6 +25,3 @@ to reserve a car for a period of time
 | BMW 650      | 2        |
 
 time to delivery : four days
-
-OOP
-object class : Car Customer Ticket
