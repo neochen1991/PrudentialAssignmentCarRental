@@ -22,16 +22,11 @@ import java.util.stream.Collectors;
  * @date 2022/12/8
  */
 @RestController
-@RequestMapping("/api/v1/car")
+@RequestMapping("/car")
 public class CarController extends BaseRestController {
 
     @Autowired
     CarService carService;
-
-    @GetMapping("/ping")
-    public String ping() {
-        return "pong";
-    }
 
     @PostMapping("/save")
     public BaseResponse save(@RequestParam(name = "model") String model) {

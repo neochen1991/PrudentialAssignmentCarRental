@@ -14,7 +14,7 @@ import java.util.List;
  * @date 2022/12/8
  */
 @RestController
-@RequestMapping("/api/v1/customer")
+@RequestMapping("/customer")
 public class CustomerController extends BaseRestController {
 
     @Autowired

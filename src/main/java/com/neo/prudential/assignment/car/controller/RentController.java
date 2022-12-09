@@ -26,7 +26,7 @@ import com.neo.prudential.assignment.car.enums.Constant;
  * @date 2022/12/8
  */
 @RestController
-@RequestMapping("/api/v1/rent")
+@RequestMapping("/rent")
 public class RentController extends BaseRestController {
 
     @Autowired
@@ -73,7 +73,7 @@ public class RentController extends BaseRestController {
             return error(RestCode.ERROR);
         }
 
-//        ticket init
+//        rentInfo init
         RentInfo build = RentInfo.builder().customer(customer.get())
                 .car(car.get())
                 .orderTime(LocalDateTime.now())
@@ -85,12 +85,6 @@ public class RentController extends BaseRestController {
         return success(save);
     }
 
-    @GetMapping("/callback")
-    @Deprecated
-    public BaseResponse thirdPaymentCallback(@RequestParam("rentId") @NotNull String rentId) {
-        //TODO: complete the third payment implements
-        return success();
-    }
 
     /**
      * @param customerId
@@ -102,19 +96,19 @@ public class RentController extends BaseRestController {
     public BaseResponse payment(@RequestParam("customerId") @NotNull String customerId,
                                 @RequestParam("carId") @NotNull String carId,
                                 @RequestParam("rentId") @NotNull String rentId) {
-        Optional<RentInfo> ticket = rentService.getById(rentId);
-        if (!ticket.isPresent()) {
+        Optional<RentInfo> rentInfo = rentService.getById(rentId);
+        if (!rentInfo.isPresent()) {
             return error(RestCode.ERROR);
         }
 
-        Customer customer = ticket.get().getCustomer();
-        Car car = ticket.get().getCar();
+        Customer customer = rentInfo.get().getCustomer();
+        Car car = rentInfo.get().getCar();
 
         if (!customer.getId().equals(customerId) || car.getId().equals(carId)) {
             return error(RestCode.ERROR);
         }
-        ticket.get().setStatus(RentStatus.PAYED);
-        RentInfo save = rentService.save(ticket.get());
+        rentInfo.get().setStatus(RentStatus.PAYED);
+        RentInfo save = rentService.save(rentInfo.get());
 
 //        frozen the car after payment
         car.setStatus(CarStatus.FROZEN);
@@ -123,68 +117,20 @@ public class RentController extends BaseRestController {
         return success(save);
     }
 
-    @PostMapping("/cancel")
-    public BaseResponse cancel(@RequestParam("rentId") @NotNull String rentId) {
-        Optional<RentInfo> ticket = rentService.getById(rentId);
-        if (!ticket.isPresent()) {
+    @PostMapping("/operate")
+    public BaseResponse cancel(@RequestParam("rentId") @NotNull String rentId,String operate) {
+        Optional<RentInfo> rentInfo = rentService.getById(rentId);
+        if (!rentInfo.isPresent()) {
             return error(RestCode.ERROR);
         }
-        RentInfo tt = ticket.get();
-        tt.setStatus(RentStatus.CANCELED);
+        RentInfo tt = rentInfo.get();
+        tt.setStatus(RentStatus.getStatusByOperate(operate));
 
         RentInfo save = rentService.save(tt);
 
-//        set car shelves after ticket cancel
         Car car = tt.getCar();
         car.setStatus(CarStatus.SHELVES);
         carService.save(car);
-
-        return success();
-    }
-
-    @PostMapping("/delivery")
-    public BaseResponse delivery(@RequestParam("rentId") @NotNull String rentId) {
-        Optional<RentInfo> ticket = rentService.getById(rentId);
-        if (!ticket.isPresent()) {
-            return error(RestCode.ERROR);
-        }
-        RentInfo tt = ticket.get();
-        tt.setStatus(RentStatus.DELIVERY);
-        tt.setStartDeliveryTime(LocalDateTime.now());
-        tt.setExpectReceiveTime(LocalDateTime.now().plusDays(Constant.TIME_TO_DELIVERY));
-
-        RentInfo save = rentService.save(tt);
-        return success(save);
-    }
-
-    @PostMapping("/confirmReceived")
-    public BaseResponse confirmReceived(@RequestParam("rentId") @NotNull String rentId) {
-        Optional<RentInfo> ticket = rentService.getById(rentId);
-        if (!ticket.isPresent()) {
-            return error(RestCode.ERROR);
-        }
-        RentInfo tt = ticket.get();
-        tt.setActualReceiveTime(LocalDateTime.now());
-        tt.setStatus(RentStatus.RECEIVED);
-        rentService.save(tt);
-
-        Car car = tt.getCar();
-        car.setStatus(CarStatus.OCCUPY);
-        carService.save(car);
-
-        return success();
-    }
-
-    @PostMapping("/returned")
-    public BaseResponse returned(@RequestParam("rentId") @NotNull String rentId) {
-        Optional<RentInfo> ticket = rentService.getById(rentId);
-        if (!ticket.isPresent()) {
-            return error(RestCode.ERROR);
-        }
-        RentInfo tt = ticket.get();
-        tt.setStatus(RentStatus.RETURN);
-        tt.setActualReturnTime(LocalDateTime.now());
-        rentService.save(tt);
 
         return success();
     }

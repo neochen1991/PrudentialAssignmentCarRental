@@ -10,20 +10,33 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum RentStatus implements BaseEnum {
 
-    INITIAL("RENT_INITIAL"),
-    PENDING("RENT_IS_PENDING"),
-    PAYED("ORDER_HAS_BE_PAYED"),
-    DELIVERY("RENT_IS_DELIVERY"),
-    RECEIVED("CAR_HAS_RECEIVED"),
-    RETURN("CAR_HAS_BEEN_RETURN"),
-    CANCELED("RENT_HAS_BEEN_CANCELED"),
+    INITIAL("INITIAL","RENT_INITIAL"),
+    PENDING("PENDING","RENT_IS_PENDING"),
+    PAYED("PAYED","ORDER_HAS_BE_PAYED"),
+    DELIVERY("DELIVERY","RENT_IS_DELIVERY"),
+    RECEIVED("RECEIVED","CAR_HAS_RECEIVED"),
+    RETURN("RETURN","CAR_HAS_BEEN_RETURN"),
+    CANCELED("CANCELED","RENT_HAS_BEEN_CANCELED"),
     ;
 
     @Getter
+    private String opetate;
     private String msg;
 
     @Override
     public String getMsg() {
         return msg;
+    }
+
+    public String getOperate() {
+        return opetate;
+    }
+
+    public static RentStatus getStatusByOperate(String operate){
+        for(RentStatus s: values()){
+            if(s.getOperate().equals(operate))
+                return s;
+        }
+        return INITIAL;
     }
 }
