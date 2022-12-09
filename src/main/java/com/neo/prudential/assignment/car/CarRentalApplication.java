@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.neo.prudential.assignment.car.Interceptor.CarInterceptor;
-import com.neo.prudential.assignment.car.entity.Car;
+import com.neo.prudential.assignment.car.Interceptor.LoginInterceptor;
 
 /**
  * @author neo
@@ -17,7 +16,7 @@ import com.neo.prudential.assignment.car.entity.Car;
 public class CarRentalApplication implements WebMvcConfigurer {
 
     @Autowired
-    private CarInterceptor interceptor;
+    private LoginInterceptor interceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
