@@ -23,13 +23,9 @@ public class CarRentalApplication implements WebMvcConfigurer {
         // TODO Auto-generated method stub
         // 这里配置拦截路径
         registry.addInterceptor(interceptor).addPathPatterns("/**").excludePathPatterns(
-            "/hello2/**",
-            "/swagger-ui/**",
-            "/v2/api-docs",
-            "/swagger-resources/**",
             "/css/**",
             "/js/**");
-        // WebMvcConfigurer.super.addInterceptors(registry);
+        WebMvcConfigurer.super.addInterceptors(registry);
     }
 
     public static void main(String[] args) {

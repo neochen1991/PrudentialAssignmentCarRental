@@ -33,6 +33,12 @@ public class CarServiceTest {
         List<Car> cars = carService.listAll();
         Assert.assertEquals("total car num is wrong", 4, cars.size());
     }
+    @Test
+    public void testListByModel() {
+        String model = "BMW 650";
+        List<Car> cars = carService.listByModel(model);
+        Assert.assertEquals("total car num is wrong", 4, cars.size());
+    }
 
     @Test
     public void testListPage() {
